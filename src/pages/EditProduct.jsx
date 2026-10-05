@@ -5,6 +5,8 @@ import api from '../api.js'
 
 function EditProduct() {
     const { id } = useParams();
+    console.log(id);
+
 
     const navigate = useNavigate();
 
@@ -12,11 +14,6 @@ function EditProduct() {
     const [price, setPrice] = useState("");
     const [category, setCategory] = useState("");
 
-    useEffect(() => {
-
-        fetchProduct();
-
-    }, []);
 
     const fetchProduct = async () => {
 
@@ -27,6 +24,12 @@ function EditProduct() {
         setCategory(response.data.category);
 
     };
+
+    useEffect(() => {
+
+        fetchProduct();
+
+    }, []);
 
     const handleSubmit = async (e) => {
 
@@ -46,7 +49,7 @@ function EditProduct() {
     return (
         <>
             <Header />
-            <main className='min-h-screen bg-gray-400 p-8'>
+            <div className='min-h-screen bg-gray-400 p-8'>
                 <div className='mx-auto max-w-xl'>
                     <h1 className='mb-8 text-center text-3xl font-bold'>Edit Product</h1>
 
@@ -56,7 +59,6 @@ function EditProduct() {
                             <input
                                 type='text'
                                 placeholder='Product Name'
-                                aria-label='Product name'
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 className='rounded bg-white p-2'
@@ -65,7 +67,6 @@ function EditProduct() {
                             <input
                                 type='number'
                                 placeholder='Product Price'
-                                aria-label='Product price'
                                 value={price}
                                 onChange={(e) => setPrice(e.target.value)}
                                 className='rounded bg-white p-2'
@@ -76,20 +77,19 @@ function EditProduct() {
                             <input
                                 type='text'
                                 placeholder='Product Category'
-                                aria-label='Product category'
                                 value={category}
                                 onChange={(e) => setCategory(e.target.value)}
                                 className='rounded bg-white p-2'
                                 required
                             />
                             <button type="submit"
-                            className='bg-green-600 p-2 text-white'>
+                                className='bg-green-600 p-2 text-white'>
                                 Update Product
                             </button>
                         </div>
                     </form>
                 </div>
-            </main>
+            </div>
         </>
     )
 }
