@@ -8,14 +8,7 @@ import api from '../api.js'
 function Product() {
     const [productList, setProductList] = useState()
 
-    // useEffect(() => {
-    //     api.get('/products')
-    //         .then((response) => {
-    //             console.log(response.data);
-    //             setProductList(response.data)
-
-    //         })
-    // }, [])
+   
     const fetchProducts = async () => {
 
         const response = await api.get("/products");
@@ -53,19 +46,16 @@ function Product() {
 
 
 
-
-
-
     return (
 
         <>
             <Header />
-            <div className='min-h-screen bg-gray-400 p-8'>
+            <div className='min-h-screen bg-gray-400 p-8 '>
 
                 <div className='mx-auto'>
                     <h2 className='text-3xl font-bold text-center mb-8'>Products</h2>
 
-                    <div className='rounded-lg bg-white shadow-md'>
+                    <div className='rounded-lg bg-white shadow-md overflow-auto'>
                         <table className='w-full text-left'>
                             <thead className='bg-gray-200 text-gray-700'>
                                 <tr>
@@ -111,8 +101,8 @@ function Product() {
                         </table>
                     </div>
 
-                    <div className='p-5 text-center'>
-                        <Link to={'/addproduct'} className='bg-green-600 p-2 text-white rounded'>Add Product</Link>
+                    <div className='p-5 w-full text-center'>
+                        <Link to={'/addproduct'} className='bg-green-600 p-2 text-white rounded ps-10 pe-10'>Add Product</Link>
                     </div>
                 </div>
             </div>
