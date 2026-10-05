@@ -47,6 +47,8 @@ function Product() {
         setProductList(
             productList.filter((product) => product.id !== id)
         );
+
+        fetchProducts();
     };
 
 

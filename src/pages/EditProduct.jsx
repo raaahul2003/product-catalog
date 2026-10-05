@@ -34,13 +34,13 @@ function EditProduct() {
 
         const updatedProduct = {
             name,
-            price: Number(price),
+            price,
             category
         };
 
         await api.put(`/products/${id}`, updatedProduct);
 
-        navigate("/products");
+        navigate("/");
     };
 
     return (

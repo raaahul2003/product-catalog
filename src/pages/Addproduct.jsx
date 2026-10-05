@@ -15,8 +15,7 @@ function Addproduct() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    setError('')
-    setIsSubmitting(true)
+    
 
     try {
       await api.post('/products', {
@@ -77,8 +76,7 @@ function Addproduct() {
                 type='submit'
                 disabled={isSubmitting}
                 className='rounded bg-green-500 p-2 text-xl text-white disabled:opacity-60'
-              >
-                {isSubmitting ? 'Saving...' : 'Submit'}
+              >Submit
               </button>
             </div>
           </form>
